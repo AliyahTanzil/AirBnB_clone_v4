@@ -2,6 +2,17 @@
 """ Starts a Flash Web Application """
 from models import storage
 from models.state import State
+from flask import Flask, render_template
+app = Flask(__name__)
+# app.jinja_env.trim_blocks = True
+# app.jinja_env.lstrip_blocks = True
+
+
+@app.teardown_appcontext
+def close_db(error):
+    """ Remove the current SQLAlchemy Session """
+    storage.close()
+
 
 @app.route('/states_list', strict_slashes=False)
 def states_list():
