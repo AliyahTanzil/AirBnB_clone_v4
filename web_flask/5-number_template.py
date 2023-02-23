@@ -1,4 +1,4 @@
-5-number_template.py#!/usr/bin/python3
+#!/usr/bin/python3
 """ Starts a Flash Web Application """
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -6,10 +6,15 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello_hbnb():
-    """ Pr
+    """ Prints a Message when / is called """
+    return 'Hello HBNB!'
+
+
 @app.route('/hbnb', strict_slashes=False)
 def hbnb():
-    """ Prints a Message when /hbnb is ca
+    """ Prints a Message when /hbnb is called """
+    return 'HBNB'
+
 
 @app.route('/c/<text>', strict_slashes=False)
 def c_is_fun(text):
